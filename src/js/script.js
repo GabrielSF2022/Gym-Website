@@ -34,6 +34,41 @@ const scrollHeader = () => {
 window.addEventListener('scroll', scrollHeader)
 
 
+
+// SCROLL SECTIONS ACTIVE LINK
+const sections = document.querySelectorAll('section[id]')
+
+const scrollActive = () => {
+    const scrollY = window.pageYOffset
+
+    sections.forEach(current =>{
+        const sectionHeight = current.offsetHeight
+        const sectionTop = current.offsetTop - 58
+        const sectionId = current.getAttribute('id')
+        const sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId +']')
+
+        if (scrollY > sectionId && scrollY <= sectionTop + sectionHeight){
+            sectionsClass.classList.add('active-link')
+        }
+
+        else{
+            sectionsClass.classList.remove('active-link')
+        }
+
+    })
+}
+window.addEventListener('scroll', scrollActive)
+
+
+// SHOW SCROLL UP
+const scrollUp = () =>{
+    const scrollUp = document.getElementById('scroll-up')
+    this.scrollY >= 350 ? scrollUp.classList.add('show-scroll')
+                        : scrollUp.classList.remove('show-scroll')
+}
+window.addEventListener('scroll', scrollUp)
+
+
 // CALCULATE
 const calculateForm = document.getElementById('calculate-form')
 const calculateCm = document.getElementById('calculate-cm')
@@ -82,5 +117,45 @@ const calculateBmi = (e) => {
         }, 4000)
     }
 }
-
 calculateForm.addEventListener('submit', calculateBmi)
+
+
+
+// EMAILJS
+const contactForm = document.getElementById('contact-form')
+const contactMessage = document.getElementById('contact-message')
+const contactUser = document.getElementById('contact-user')
+
+const sendEmail = (e) => {
+    e.preventDefault()
+
+    if(contactUser.value === ''){
+        contactMessage.classList.remove('color-green')
+        contactMessage.classList.add('color-red')
+
+        contactMessage.textContent = 'You must enter your email'
+
+        setTimeout(() => {
+            contactMessage.textContent = ''
+        }, 3000)
+    }
+
+    else{
+        emailjs.sendForm('service_6fvv452','template_b1cizga','#contact-form','3YQB1kpc-K0ktz2YR')
+            .then(() =>{
+                console.log("ok")
+                contactMessage.classList.add('color-green')
+                contactMessage.textContent = 'You registered successfully'
+
+                setTimeout(() =>{
+                    contactMessage.textContent=''
+                }, 3000)
+            }, (error) =>{
+                alert('OOPS! SOMETHING HAS FAILED...', error)
+            })
+
+        contactUser.value = ''
+    }
+}
+
+contactForm.addEventListener('submit', sendEmail)

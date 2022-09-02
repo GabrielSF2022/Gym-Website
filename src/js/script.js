@@ -115,7 +115,7 @@ const calculateBmi = (e) => {
 
         setTimeout(() =>{
             calculateMessage.textContent = ''
-        }, 4000)
+        }, 5000)
     }
 }
 calculateForm.addEventListener('submit', calculateBmi)

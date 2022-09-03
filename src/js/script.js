@@ -138,20 +138,19 @@ const sendEmail = (e) => {
 
         setTimeout(() => {
             contactMessage.textContent = ''
-        }, 3000)
+        }, 5000)
     }
 
     else{
-        emailjs.sendForm('service_6fvv452','template_b1cizga','#contact-form','3YQB1kpc-K0ktz2YR')
+        emailjs.sendForm('service_9lyilzu','template_4g4fbem','#contact-form','flSrmi-lnEoJewZKy')
             .then(() =>{
-                console.log("ok")
                 contactMessage.classList.add('color-green')
                 contactMessage.textContent = 'You registered successfully'
 
                 setTimeout(() =>{
-                    contactMessage.textContent=''
-                }, 3000)
-            }, (error) =>{
+                    contactMessage.textContent= ''
+                }, 5000)
+            }, (error) => {
                 alert('OOPS! SOMETHING HAS FAILED...', error)
             })
 

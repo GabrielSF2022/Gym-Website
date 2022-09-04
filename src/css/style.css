@@ -718,3 +718,75 @@ img{
     position: absolute;
     transform: translateY(1rem);
 }
+
+
+
+/* BREAKPOINTS */
+@media(max-width:340px){
+    .container{
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .section__titles{
+        flex-direction: column;
+        row-gap: .25rem;
+    }
+
+    .home__triangle,
+    .choose__triangle{
+        height: 255px;
+    }
+
+    .home__triangle-3,
+    .choose__triangle-1{
+        width: 260px;
+    }
+
+    .choose__img{
+        width: 195px;
+    }
+
+    .pricing__container{
+        grid-template-columns: 250px;
+    }
+
+    .pricing__card{
+        padding: 1.5rem;
+    }
+
+    .footer__content{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(min-width:768px){
+    .nav__menu{
+        width: 50%;
+    }
+
+    .home__container,
+    .choose__container{
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+    }
+
+    .home__data,
+    .choose__content .section__data,
+    .choose__description{
+        text-align: initial;
+    }
+
+    .logos__container{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .program__container{
+        grid-template-columns: repeat(2, 225px);
+        gap: 2.5rem;
+    }
+
+    .choose__content{
+        order: 1;
+    }
+}

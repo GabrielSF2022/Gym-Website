@@ -159,3 +159,13 @@ const sendEmail = (e) => {
 }
 
 contactForm.addEventListener('submit', sendEmail)
+
+
+// SCROLL REVEAL
+function scrollReveal(){
+    ScrollReveal({reset:true});
+
+    ScrollReveal().reveal('.home__data', { delay:400});
+}
+
+ScrollReveal()
